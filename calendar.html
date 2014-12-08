@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>임건홍 달력</title>
+  <style>
+  #circle {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border:0px solid #ccc;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px; 
+}
+  .page{
+  	border:1px solid #888;
+  	width:1024px;
+  	height:768px;
+  	padding:15px 10px 10px 10px;
+  	font-size: 22px;
+  	font-family: "Theano Old Style";
+  	font-weight: bold;
+  	margin:0 auto;
+  }
+  th{
+  	height:30px;
+  	font-size:16px;
+  	color:#777;
+  	vertical-align:top;
+  border-collapse: collapse;
+  border-bottom:1px solid lightgray;
+  }
+  td{
+  	width:100px;
+  	height:140px;
+  	vertical-align:top;
+  	padding: 3px;
+  }
+  .left{
+    float:left;
+  }
+  .head{
+  	font-size:32px;
+  	color:#aaa;
+  }
+  .month{
+  	font-size: 18px;
+  	color:#ccc;
+  }
+  .sche, .spec, th{
+  	font-family:"-윤고딕320";
+  }
+  .sche{
+  	border:0px solid #ccc;
+    background-color: #ededed;
+    width:270px;
+    height: 720px;
+    padding:5px;
+  	font-size: 12px;
+  	color:#888;
+  	letter-spacing: 0.8px;
+  }
+  .schj1{
+  	width:10px;
+  }
+  .schj2{
+  	width:70px;}
+  .schj3{
+  	width:190px;}
+  	.one .schj1, .one .schj2, .one .schj3{
+  		height: 40px;
+  	}
+  	.two .schj1, .two .schj2, .two .schj3{
+  		height: 15px;
+  	}
+  	.three .schj1, .three .schj2, .three .schj3{
+  		height: 20px;
+  		font-weight: normal;
+  	}
+  	.four .schj3{
+  		font-weight: normal;
+  	}
+  	.schj3{
+  		line-height: 16px;
+  	}
+  	.date{
+  		font-size:10px;
+  		padding-left:5px;
+  		color:#ccc;
+  	}
+  	.spec{
+  		font-size:14px;
+  		padding-bottom:5px;
+  		color:#999;
+  	}
+  	.calen{
+  	color:#777;
+  	padding-left:10px;
+  	}
+  	.sun{
+  		color:#000;
+  	}
+  	.sat{
+  		color:#bbb;
+  	}
+  	.chris{
+    background-color: #ededed;
+    color:#000;
+  	}
+  	.last{
+  		color:#ddd;
+  	}
+  	.line td{
+  		padding-top:10px;
+  	}
+  	.sche0{
+  		display:none;
+  	}
+  	@media screen and (min-width:701px) and (max-width:1200px){
+  #circle {
+    width: 5px;
+    height: 5px; 
+}
+  .page{
+  	width:600px;
+  	height:380px;
+  	padding:5px;
+  	font-size: 16px;
+  }
+  th{
+  	height:20px;
+  	font-size:11.5px;
+  		font-weight: normal;
+  }
+  td{
+  	width:60px;
+  	height:68px;
+  	padding: 1px;
+  }
+  .head{
+  	font-size:20px;
+  }
+  .month{
+  	font-size: 12px;
+  		font-weight: normal;
+  }
+  .sche{
+    width:170px;
+    height: 345px;
+    padding:5px;
+  	font-size: 11px;
+  		font-weight: normal;
+  }
+  .schj1{
+  	width:10px;
+  }
+  .schj2{
+  	width:70px;}
+  .schj3{
+  	width:190px;}
+  	.one .schj1, .one .schj2, .one .schj3{
+  		height: 20px;
+  	}
+  	.four .schj3{
+  		display: none;
+  	}
+  	.date{
+  		display: none;
+  	}
+  	.spec{
+  		font-size:8px;
+  		font-weight: normal;
+  	}
+  	.line td{
+  		padding-top:5px;
+  	}
+  }
+  	@media screen and (max-width:700px){
+  #circle {
+    width: 5px;
+    height: 5px; 
+}
+  .page{
+  	width:380px;
+  	height:600px;
+  	padding:5px;
+  	font-size: 16px;
+  }
+  th{
+  	height:20px;
+  	font-size:11.5px;
+  		font-weight: normal;
+  }
+  td{
+  	width:60px;
+  	height:88px;
+  	padding: 1px;
+  }
+  .head{
+  	padding-left:5px;
+  	font-size:20px;
+  }
+  .month{
+  	font-size: 12px;
+  		font-weight: normal;
+  }
+  .sche{
+  	display:none;
+  }
+  	.sche0{
+  		display:block;
+    width:370px;
+    height: 85px;
+    padding:5px;
+  	font-size: 11px;
+  		font-weight: normal;
+  	border:0px solid #ccc;
+    background-color: #ededed;
+  	color:#888;
+  	letter-spacing: 1px;
+  	}
+  .schj1{
+  	width:10px;
+  }
+  .schj2{
+  	width:50px;}
+  .schj3{
+  	width:190px;}
+  	.one .schj1, .one .schj2, .one .schj3{
+  		height: 10px;
+  	}
+  	.four .schj3{
+  		display: none;
+  	}
+  	.date{
+  		display: none;
+  	}
+  	.spec{
+  		font-size:8px;
+  		font-weight: normal;
+  	}
+  	.line td{
+  		padding-top:5px;
+  	}
+  .left{
+    float:none;
+  }
+  	.two .schj1, .two .schj2, .two .schj3{
+  		height: 10px;
+  	}
+  	.three .schj1, .three .schj2, .three .schj3{
+  		height: 10px;
+  	}
+  	.calen{
+  		padding:0;
+  	}
+  }
+  </style>
+</head>
+<body>
+  <div class="page">
+  <div class="left">
+    <div class="head">12 <span class="month">.2014</span></div>
+     <div class="sche">
+      <table>
+        <tr class="one">
+          <td class="schj1"></td>
+          <td class="schj2">12.25</td>
+          <td class="schj3"></td>
+        </tr>
+        <tr class="two">
+          <td class="schj1"></td>
+          <td class="schj2">공휴일</td>
+          <td class="schj3">성탄절</td>
+        </tr>
+        <tr class="three">
+          <td class="schj1"><div id="circle"></div></td>
+          <td class="schj2">PM 7:00</td>
+          <td class="schj3">크리스마스 파티</td>
+        </tr>
+        <tr class="four">
+          <td class="schj1"></td>
+          <td class="schj2"></td>
+          <td class="schj3">저녁 7시, 건홍, 혜정과 만나 셋이서 우리집에서 크리스마스 파티, 와인, 케이크, 쿠키, 선물, 바베큐, 칠면조, 치킨, 맥주, 트리 준비하기</td>
+        </tr>
+      </table>
+      </div>
+      </div>
+      <table class="calen" cellspacing="0" cellpadding="2">
+        <tr>
+          <th class="sun">일</th>
+          <th>월</th>
+          <th>화</th>
+          <th>수</th>
+          <th>목</th>
+          <th>금</th>
+          <th class="sat">토</th>
+        </tr>
+        <tr class="line">
+          <td class="last">31</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td class="sat">6<span class="date">(10.15)</span></td>
+        </tr>
+        <tr>
+          <td class="sun">7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>10</td>
+          <td>11</td>
+          <td>12</td>
+          <td class="sat">13</td>
+        </tr>
+        <tr>
+          <td class="sun">14</td>
+          <td>15</td>
+          <td>16</td>
+          <td>17</td>
+          <td>18</td>
+          <td>19</td>
+          <td class="sat">20</td>
+        </tr>
+        <tr>
+          <td class="sun">21</td>
+          <td>22<span class="date">(11.1)</span><div class="spec">동지</div></td>
+          <td>23</td>
+          <td>24</td>
+          <td class="chris">25<div class="spec">성탄절</div><div id="circle"></div></td>
+          <td>26</td>
+          <td class="sat">27</td>
+        </tr>
+        <tr>
+          <td class="sun">28</td>
+          <td>29</td>
+          <td>30</td>
+          <td>31</td>
+          <td class="last">1</td>
+          <td class="last">2</td>
+          <td class="last">3</td>
+        </tr>
+      </table>
+     <div class="sche0">
+      <table>
+        <tr class="one">
+          <td class="schj1"></td>
+          <td class="schj2">12.25</td>
+          <td class="schj3"></td>
+        </tr>
+        <tr class="two">
+          <td class="schj1"></td>
+          <td class="schj2">공휴일</td>
+          <td class="schj3">성탄절</td>
+        </tr>
+        <tr class="three">
+          <td class="schj1"><div id="circle"></div></td>
+          <td class="schj2">PM 7:00</td>
+          <td class="schj3">크리스마스 파티</td>
+        </tr>
+       </table>
+      </div>
+  </div>
+</body>
+</html>
